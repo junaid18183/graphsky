@@ -3,33 +3,19 @@
         "name": "default",
         "included_reports": [
             "load",
-            "cpu",
-            "mem",
-            "network",
-            "packets",
-            "disk_ops",
-            "disk",
-            "ntpd"
+            "memory",
+            "ping"
         ],
         "environments": "/.*/",
         "clusters": "/.*/"
-    },
+    }, 
     {
-        "name": "mysql",
+        "name": "network",
         "included_reports": [
-            "mysql"
+            "network"
         ],
         "environments": "/.*/",
-        "clusters": "/^(dbslaves|dbmasters)$/"
-    },
-    {
-        "name": "virtual",
-        "included_reports": [
-            "virt_cpu",
-            "virt_network",
-            "virt_disk_ops"
-        ],
-        "environments": "/^virtual$/",
-        "clusters": "/.*/"
+        "clusters": "/^(aggr_edge)$/"
     }
-] }
+] 
+}

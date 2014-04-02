@@ -5,7 +5,7 @@
       });
       </script>
       <div id="footer">
-        Powered by <a href="https://launchpad.net/graphite/" target="_blank">Graphite</a> | Created by <a href="https://github.com/lensen" target="_blank">skyler</a>
+        Powered by <a href="https://launchpad.net/graphite/" target="_blank">Graphite</a> | Managed  by <a href="https://github.com/junaid18183/graphsky" target="_blank">Ops</a>
       </div>
     </div>
   </body>

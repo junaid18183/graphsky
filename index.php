@@ -11,7 +11,7 @@ $l      = (isset($_GET['l']) && $_GET['l'] != "") ? $_GET['l'] : "no";
 $dn     = (isset($_GET['dn']) && $_GET['dn'] != "") ? $_GET['dn'] : NULL;
 $gs     = isset($_GET['from']) ? $_GET['from'] : $conf['default_time_range'];
 $ge     = isset($_GET['until']) ? $_GET['until'] : "-30 seconds";
-$z      = isset($_GET['z']) && in_array($_GET[ 'z' ], $conf['graph_sizes_keys']) ? $_GET['z'] : "default";
+$z      = isset($_GET['z']) && in_array($_GET[ 'z' ], $conf['graph_sizes_keys']) ? $_GET['z'] : "large";
 $view   = NULL;
 
 #$from   = "-" . $gs;

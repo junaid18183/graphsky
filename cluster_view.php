@@ -20,35 +20,3 @@ elseif (isset($graph_reports)) {
 }
 ?>
 </div>
-<a name="hosts"></a>
-<a href="#hosts">
-    <div class="block_title">Hosts</div>
-</a>
-
-<?php
-$host_search = json_decode(file_get_contents($conf['graphite_search_url'] . $conf['graphite_prefix'] . "$env.$c.*"), TRUE);
-$hosts = $host_search['results'];
-natsort($hosts);
-if (isset($g)) { print "<div class=\"graph_block\">"; }
-foreach ($hosts as $host) {
-    $host_name = str_replace($conf['graphite_prefix'] . "$env.$c.", "", $host);
-    if ($host_name == $conf['cluster_hostname']) { continue; }
-    if (isset($graph_reports)) {
-        if (!isset($g)) { print "<a href=\"?$graph_args&h=$host_name&from=$gs&until=$ge\"><div class=\"banner_text\">$host_name</div></a><div class=\"graph_block\">"; }
-        foreach ($graph_reports as $graph_report) {
-            $current_graph_args = $graph_args . "&h=$host_name";
-            print print_graph($current_graph_args, "g=$graph_report", $z, $from, $until);
-        }
-        if (!isset($g)) { print "<br /><br /></div>"; }
-    }
-    elseif (isset($m)) {
-        $depth = $conf['host_metric_group_depth'] + 1;
-        $metric_group_elements = explode(".", $metric_graph, $depth);
-        array_pop($metric_group_elements);
-        $metric_group_name = implode(".", $metric_group_elements);
-        $current_graph_args = $graph_args . "&h=$host_name&dn=$host_name";
-        print print_graph($current_graph_args, "m=$metric_graph", $z, $from, $until);
-    }
-}
-if (isset($g)) { print "</div>"; }
-?>

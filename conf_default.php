@@ -2,12 +2,13 @@
 $base_dir = dirname(__FILE__);
 
 # Dashboard settings
-$conf['dashboard_domainname'] = "graphsky.example.com";
+$conf['dashboard_domainname'] = "monitor.ningops.com/graphsky";
 $conf['dashboard_config'] = $base_dir . "/dashboards.json";
-$conf['dashboard_refresh_interval'] = "60";
+$conf['dashboard_refresh_interval'] = "120";
 $conf['graph_template_dir'] = $base_dir . "/graph.d";
 $conf['graph_domainname'] = "http://" . $conf['dashboard_domainname'];
-$conf['use_random_graph_domainname'] = True;
+#$conf['use_random_graph_domainname'] = True;
+$conf['use_random_graph_domainname'] = False;
 $conf['host_metric_group_depth'] = 2;
 # If you have your metrics for an entire cluster stored seperately,
 # specify that "hostname" here.
@@ -15,12 +16,13 @@ $conf['host_metric_group_depth'] = 2;
 $conf['cluster_hostname'] = "*";
 
 # Graphite settings
-$conf['graphite_url_base'] = "http://graphite." . $conf['dashboard_domainname'];
+$conf['graphite_url_base'] = "http://monitor.ningops.com:8080";
+#$conf['graphite_url_base'] = "http://graphite." . $conf['dashboard_domainname'];
 $conf['graphite_render_url'] = $conf['graphite_url_base'] . "/render";
 $conf['graphite_search_url'] = $conf['graphite_url_base'] . "/metrics/expand/?query=";
 # Don't forget the trailing . when specifying a prefix
-$conf['graphite_prefix'] = "collectd.";
-$conf['graphite_puppet_prefix'] = "puppet.";
+#$conf['graphite_prefix'] = "collectd.";
+#$conf['graphite_puppet_prefix'] = "puppet.";
 $conf['graphite_default_env'] = "";
 
 # Graph settings

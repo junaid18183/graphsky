@@ -65,7 +65,7 @@ function build_graphite_series( $config, $host_cluster = "" ) {
         if ( isset($item['functions']) )
             $functions = $item['functions'];
         else
-            $functions[0] = "sumSeries";
+            //$functions[0] = "sumSeries";
         if ( isset($item['hostname']) && isset($item['clustername']) )
             $host_cluster = $item['clustername'] . "." . str_replace(".","_", $item['hostname']);
         $metric = "$host_cluster.${item['metric']}";
@@ -73,7 +73,8 @@ function build_graphite_series( $config, $host_cluster = "" ) {
             $metric = "$function($metric)";
         }
 
-        $targets[] = "target=". urlencode( "alias($metric,'${item['label']}')" );
+        $targets[] = "target=". urlencode( "cactiStyle(aliasByNode($metric,2))" );
+        //$targets[] = "target=". urlencode( "alias($metric,'${item['label']}')" );
         $colors[] = $item['color'];
     }
 
@@ -110,7 +111,7 @@ function print_graph($args, $metric_report, $graph_size, $from, $until) {
       <div class=\"graph_card\">
         <div class=\"graph_img\">
           <a href=\"?$args&from=$from&until=$until\">
-            <img width=\"$width\" height=\"$height\" class=\"lazy\" src=\"img/blank.gif\" data-original=\"". get_graph_domainname() . "/graph.php?$args&$metric_report&z=$graph_size&from=$from&until=$until\" />
+            <img width=\"$width\" height=\"$height\" class=\"lazy\" src=\"img/blank.gif\" data-original=\"". get_graph_domainname() . "/graph.php?$args&$metric_report&z=$graph_size&from=$from&until=$until\" /> 
           </a>
         </div>
         " . show_graph_buttons("$args&$metric_report", $from, $until) . "</div>";

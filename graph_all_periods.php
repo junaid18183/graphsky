@@ -24,7 +24,7 @@ include_once "./header.php";
 print "
       <div id=\"menu\"><div class=\"menu_row\">
         <div class=\"menu_cell\">
-          <a href=\"/?$graph_args\">Go to $realcluster $realhost overview</a>
+          <a href=\"/graphsky/?$graph_args\">Go to $realcluster $realhost overview</a>
         </div>
       </div></div>
       <div id=\"main\">

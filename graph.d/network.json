@@ -1,11 +1,12 @@
 {
-    "report_name" : "network",
-    "service_name" : "Interfaces",
-    "title" : "Network Report",
-    "vertical_label" : "bytes/sec",
-    "units": "binary",
+    "report_name" : "Network Throughput",
+    "service_name" : "Network Throughput",
+    "title" : "Network Throughput",
+    "vertical_label" : "Network Throughput",
     "series" : [
-        { "metric": "interface.eth*.if_octets.rx", "color": "33cc33", "label": "In", "type": "stack" },
-        { "metric": "interface.eth*.if_octets.tx", "color": "5555cc", "label": "Out", "line_width": "2", "type": "line" }
+	{ "metric": "Interface_GigabitEthernet_1_0_out.1", "label": "BBB", "stack_width": "2", "type": "stack" ,"color": "purple" },
+	{ "metric": "Interface_GigabitEthernet_1_1_out.1", "label": "CCC", "stack_width": "2", "type": "stack" ,"color": "yellow" },
+	{ "metric": "Interface_TenGigabitEthernet_0_0_out.1", "label": "DDD", "stack_width": "2", "type": "stack" ,"color": "green" },
+	{ "metric": "Interface_0000001_out.1", "label": "AAA", "stack_width": "2", "type": "stack" , "color": "red"}
     ]
 }

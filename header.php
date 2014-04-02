@@ -48,6 +48,10 @@ $title = implode(" > ", array_filter($title_array));
     <div id="container">
       <div id="header">
         <div class="header_text left">
-          <?php print "<a href=\"/\">$name</a>" ?>
-        </div>
+          <?php print "<a href=\"/graphsky\">$name</a>" ?>
+	  </div>
+	 <div class="header_text right">	 
+	<?php print "<text text-align:right> Current Time is: </text>"  ?>
+          <?php echo date("D M d, Y G:i a"); ?>
+	</div>
       </div>
